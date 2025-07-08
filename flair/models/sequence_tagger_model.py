@@ -207,7 +207,7 @@ class SequenceTagger(flair.nn.Classifier[Sentence]):
             self.crf = CRF(self.label_dictionary, self.tagset_size, init_from_state_dict)
             self.viterbi_decoder = ViterbiDecoder(self.label_dictionary)
 
-        self.to(flair.device)
+        self.to_empty(device=flair.device)
 
     @property
     def label_type(self):

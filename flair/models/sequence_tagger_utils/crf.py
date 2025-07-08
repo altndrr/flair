@@ -33,7 +33,7 @@ class CRF(torch.nn.Module):
             self.transitions.detach()[tag_dictionary.get_idx_for_item(START_TAG), :] = -10000
 
             self.transitions.detach()[:, tag_dictionary.get_idx_for_item(STOP_TAG)] = -10000
-        self.to(flair.device)
+        self.to_empty(device=flair.device)
 
     def forward(self, features: torch.Tensor) -> torch.Tensor:
         """Forward propagation of Conditional Random Field.
